@@ -70,8 +70,7 @@ class HTTP(Session):
         return res
 
     def split_header(self, headers):
-        # Split key and value by "#" instead of "=" to allow the value to contain "=".
-        return dict(x.split("#") for x in headers.split(";") if x)
+        return dict(x.split("=") for x in headers.split(";") if x)
 
 
 def download_thumbnails(output, config, urls):
